@@ -1,0 +1,94 @@
+@import '../../style/main.scss';
+
+h1 {
+    font-weight: 500;
+    font-size: 36px;
+}
+
+.accomodation {
+
+    &_infos {
+        @include flex(row, space-between, flex-start);
+        width: 95%;
+        margin: 0 auto;
+
+        @media screen and (max-width: 650px) {
+            @include flex(column, space-between, flex-start);
+            gap: 10px;
+        }
+
+        &_main {
+            @include flex(column, space-between, flex-start);
+            gap: 10px;
+            font-size: 18px;
+
+            button {
+                display: inline;
+                padding: 3px 37px;
+                border-radius: 10px;
+                font-size: 14px;
+                border: none;
+                color: $second-color;
+                background-color: $main-color;
+                //margin-top: 13px;
+            }
+
+            div {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+
+
+        &_host {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            @media screen and (max-width: 650px) {
+                width: 100%;
+                @include flex(row-reverse, space-between, center);
+
+            }
+
+            div {
+                display: flex;
+                justify-content: flex-end;
+                align-items: flex-end;
+                gap: 0 10px;
+
+                @media screen and (max-width: 500px) {
+                    gap: 0 5px;
+                }
+            }
+
+            &_profile {
+                align-self: center;
+                flex-direction: column;
+            }
+
+            &_picture {
+                width: 64px;
+                height: 64px;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 50%;
+            }
+
+            &_rating {
+                display: inline;
+
+                img {
+                    width: 30px;
+                    height: 30px;
+
+                    @media screen and (max-width: 650px) {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

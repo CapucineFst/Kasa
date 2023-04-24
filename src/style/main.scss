@@ -1,0 +1,35 @@
+@import './utils/mixins';
+@import './utils/variables';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    max-width: 1536px;
+    margin: auto;
+    background-color: $second-color;
+    font-family: $font;
+    color: $main-color;
+    height: 100%;
+}
+
+.home {
+    height: auto;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: $main-color;
+}
