@@ -1,0 +1,13 @@
+@import '../../style/main.scss';
+
+.footer {
+    @include flex(column);
+    gap: 50px;
+    width: 100%;
+    height: 209px;
+    background-color: #000;
+
+    &_copyright {
+        color: $second-color;
+    }
+}
