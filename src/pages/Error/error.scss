@@ -1,0 +1,39 @@
+@import '../../style/main.scss';
+
+.error {
+    max-width: 95%;
+    margin: 0 auto;
+
+    &_infos {
+        @include flex(column, center, center);
+        height: calc(100vh - 50vh);
+
+        &_main {
+            font-weight: 700;
+            font-size: calc(100vw / 5);
+
+            @media screen and (max-width: 650px) {
+                font-size: calc(100vw / 4);
+            }
+        }
+
+        &_content {
+            font-size: 36px;
+            font-weight: 500;
+        }
+
+        &_homepage {
+            display: block;
+            text-align: center;
+            margin-top: 15vh;
+            font-weight: 500;
+            font-size: 18px;
+            text-decoration: underline solid 2px;
+
+            @media screen and (max-width: 650px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+}
