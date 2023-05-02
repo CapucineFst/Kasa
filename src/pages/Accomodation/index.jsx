@@ -11,6 +11,8 @@ import Slide from '../../components/Carousel';
 
 export default function Accomodation() {
 
+    document.title = 'Annonce - Kasa'
+
     const [imageSlide, setImageSlide] = useState([]);
 
     const idAccomodation = useParams('id').id;
