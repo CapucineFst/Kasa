@@ -1,6 +1,7 @@
 import Home from './pages/Home';
-import Accomodation from './pages/Accomodation';
 import About from './pages/About';
+import Accomodation from './pages/Accomodation';
+import Error from './pages/Error';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
 	{
 		path: "/accomodation/:id",
 		element: <Accomodation />
+	},
+	{
+		path: "*",
+		element: <Error />
 	}
 ]);
 
