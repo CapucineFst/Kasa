@@ -3,9 +3,13 @@
 .about {
     margin: 40px auto;
     max-width: 95%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .collapse {
-    margin: 40px auto;
     line-height: 34px;
+    width: 90%;
 }

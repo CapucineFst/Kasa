@@ -32,7 +32,7 @@ export default function About() {
 			<Banner />
 			<div className='about'>
 				{aboutData.map((about, index) => 
-					<Collapse className= "about_data"
+					<Collapse className= 'about_data'
 						title = {about.title}
 						content = {about.content}
 						key = {`${about.title}-${index}`}

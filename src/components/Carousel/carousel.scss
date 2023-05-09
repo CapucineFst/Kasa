@@ -2,14 +2,22 @@
 
 .carousel {
     position: relative;
-    display: flex;
-    width: 100%;
+    overflow: hidden;
     height: 415px;
     border-radius: 25px;
-    background-position: center;
-    background-size: cover;
     width: 95%;
     margin: 43px auto;
+
+    div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 415px;
+        background-position: center;
+        background-size: cover;
+        transition: all 1.0s ease-in-out;
+    }
 
     @media screen and (max-width: 650px) {
         height: 200px;
@@ -39,6 +47,6 @@
         transform: translateX(-50%);
         color: $second-color;
         font-weight: 500;
-        font-size: clamp(14px, 2vw, 18px);
+        font-size: 18px;
     }
 }

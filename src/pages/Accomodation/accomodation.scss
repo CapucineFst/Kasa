@@ -22,7 +22,7 @@ h1 {
             gap: 10px;
             font-size: 18px;
 
-            button {
+            span {
                 display: inline;
                 padding: 3px 37px;
                 border-radius: 10px;
@@ -30,7 +30,6 @@ h1 {
                 border: none;
                 color: $second-color;
                 background-color: $main-color;
-                //margin-top: 13px;
             }
 
             div {
@@ -42,8 +41,8 @@ h1 {
 
 
         &_host {
-            display: flex;
-            flex-direction: column;
+
+            @include flex(column, center, flex-end);
             gap: 5px;
 
             @media screen and (max-width: 650px) {
@@ -88,6 +87,26 @@ h1 {
                         height: 20px;
                     }
                 }
+            }
+        }
+    }
+
+    &_collapse {
+        display: flex;
+        margin: 24px auto;
+        gap: 76px;
+        justify-content: space-between;
+
+        @media screen and (max-width: 650px) {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        &_item {
+            width: 50%;
+
+            @media screen and (max-width: 650px) {
+                width: 95%;
             }
         }
     }

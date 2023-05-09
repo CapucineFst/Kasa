@@ -16,7 +16,15 @@ export default function Slide({imageSlide}) {
     };
 
     return (
-        <section style={{backgroundImage : `url(${imageSlide[currentIndex]})`}} className='carousel'>
+        <section className='carousel'>
+            {imageSlide.map((imageUrl, index) => {
+                return (
+                    <div 
+                        key={imageSlide.id}
+                        style={{backgroundImage: `url(${imageUrl})`, opacity: index === currentIndex ? 1 : 0}}
+                    />
+                )
+            })}
             {imageSlide.length > 1 && 
                 <>
                     <img 

@@ -39,7 +39,7 @@ export default function Accomodation() {
                         <div>
                             {dataAccomodation[0].tags.map((tag, index) => {
                                 return(
-                                    <button key={index}>{tag}</button>
+                                    <span key={index}>{tag}</span>
                                 )
                             })}
                         </div>
@@ -63,11 +63,21 @@ export default function Accomodation() {
                     </div>
                 </div>
                 <div className="accomodation_collapse">
-					<div className="accomodation_collapse_item">
-						<Collapse title={'Description'} content={dataAccomodation[0].description} />	
+					<div className="accomodation_collapse_item">				
+                        <Collapse title={'Description'} content={dataAccomodation[0].description}/>	
 					</div>
 					<div className="accomodation_collapse_item">
-						<Collapse title={'Équipements'} content={dataAccomodation[0].equipments}/>
+						<Collapse title={'Équipements'} content=
+                            {dataAccomodation[0].equipments.map((item, index) => {
+                                return (
+                                    <ul>
+                                        <li key={index}>
+                                            {item}
+                                        </li>
+                                    </ul>
+                                )
+                            })}
+                        />
 					</div>	
 				</div>
 			</main>

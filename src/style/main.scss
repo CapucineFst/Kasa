@@ -1,5 +1,9 @@
 @import './utils/mixins';
 @import './utils/variables';
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@200&family=Montserrat:wght@400;500;700&display=swap');
+
+$font:'Montserrat',
+sans-serif;
 
 * {
     box-sizing: border-box;
@@ -12,7 +16,7 @@ html {
 }
 
 body {
-    max-width: 1536px;
+    max-width: 1700px;
     margin: auto;
     background-color: $second-color;
     font-family: $font;
