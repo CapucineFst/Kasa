@@ -2,12 +2,11 @@ import './collapse.scss'
 import arrow from '../../assets/arrow.svg';
 import { useState } from 'react';
 
-export default function Collapse({title, content}) {
+export default function Collapse({title, children}) {
 
     const [toggle, setToggle] = useState(false);
 
     return (
-        <>
             <div className="collapse" >
                 <h3 className='collapse_title' onClick={() => setToggle(!toggle)} >
                     {title}
@@ -18,9 +17,9 @@ export default function Collapse({title, content}) {
                     />
                 </h3>
                 <div className={toggle ? 'collapse_content' : 'collapse_content_hidden'}>
-                        <div>{content}</div>
+                        <div>{children}</div>
                 </div>
             </div>
-        </>
+      
     )
 }
