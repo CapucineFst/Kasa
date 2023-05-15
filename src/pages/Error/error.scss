@@ -7,6 +7,7 @@
     &_infos {
         @include flex(column, center, center);
         height: calc(100vh - 50vh);
+        text-align: center;
 
         &_main {
             font-weight: 700;

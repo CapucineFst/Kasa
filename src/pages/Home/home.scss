@@ -1,1 +1,26 @@
 @import '../../style/main.scss';
+
+.banner {
+    position: relative;
+    @include flex;
+    border-radius: 25px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assets/home_cover.svg');
+    background-position: center;
+    background-size: cover;
+    height: 223px;
+    padding: 20px;
+    max-width: 95%;
+    margin: 45px auto;
+
+    @media screen and (max-width: 550px) {
+        margin: 20px auto;
+        height: 120px;
+    }
+
+    p {
+        color: #fff;
+        font-size: clamp(20px, 4vw, 48px);
+        font-weight: 500;
+    }
+
+}

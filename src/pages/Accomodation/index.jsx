@@ -1,5 +1,6 @@
 import './accomodation.scss';
 import Header from '../../components/Header';
+import Slide from '../../components/Carousel';
 import Collapse from '../../components/Collapse';
 import Footer from '../../components/Footer';
 import redStar from '../../assets/red_star.svg';
@@ -7,11 +8,13 @@ import greyStar from '../../assets/grey_star.svg';
 import datas from '../../data/data.json';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Slide from '../../components/Carousel';
+import { useNavigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 
 export default function Accomodation() {
 
     document.title = 'Annonce - Kasa'
+    const navigate = useNavigate()
 
     const [imageSlide, setImageSlide] = useState([]);
 
@@ -20,10 +23,20 @@ export default function Accomodation() {
 
     useEffect(() => {
         const dataAccomodation = datas.filter(data => data.id ===idAccomodation);
+        if (dataAccomodation.length === 0) {
+            navigate('error');
+            return;
+        }
         setImageSlide(dataAccomodation[0].pictures);
 
-    }, [idAccomodation]);
+    }, [idAccomodation, navigate]);
 
+ 
+    if (dataAccomodation.length === 0) {
+        <Navigate to='error'/>
+        return;
+    }
+    
     const name = dataAccomodation[0].host.name.split(' '); 
 	const rating = dataAccomodation[0].rating;
 
@@ -64,20 +77,22 @@ export default function Accomodation() {
                 </div>
                 <div className="accomodation_collapse">
 					<div className="accomodation_collapse_item">				
-                        <Collapse title={'Description'} content={dataAccomodation[0].description}/>	
+                        <Collapse title={'Description'}>
+                            <p>{dataAccomodation[0].description}</p>
+                        </Collapse>
 					</div>
 					<div className="accomodation_collapse_item">
-						<Collapse title={'Équipements'} content=
-                            {dataAccomodation[0].equipments.map((item, index) => {
-                                return (
-                                    <ul>
+						<Collapse title={'Équipements'}>
+                            <ul>
+                                {dataAccomodation[0].equipments.map((item, index) => {
+                                    return (
                                         <li key={index}>
                                             {item}
                                         </li>
-                                    </ul>
-                                )
-                            })}
-                        />
+                                    )
+                                })}
+                            </ul>
+                        </Collapse>
 					</div>	
 				</div>
 			</main>

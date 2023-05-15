@@ -20,7 +20,7 @@ export default function Slide({imageSlide}) {
             {imageSlide.map((imageUrl, index) => {
                 return (
                     <div 
-                        key={imageSlide.id}
+                        key={index}
                         style={{backgroundImage: `url(${imageUrl})`, opacity: index === currentIndex ? 1 : 0}}
                     />
                 )
