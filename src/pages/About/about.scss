@@ -13,3 +13,21 @@
     line-height: 34px;
     width: 90%;
 }
+
+.about_banner {
+    position: relative;
+    @include flex;
+    border-radius: 25px;
+    height: 223px;
+    max-width: 95%;
+    margin: 43px auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../../assets/about_cover.svg');
+    background-position: center;
+    background-size: cover;
+
+    @media screen and (max-width: 550px) {
+        margin: 20px auto;
+        height: 120px;
+    }
+
+}
