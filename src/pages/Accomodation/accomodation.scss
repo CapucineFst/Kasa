@@ -96,7 +96,7 @@ h1 {
         margin: 24px auto;
         gap: 76px;
         justify-content: space-between;
-        max-width: 95%;
+        //max-width: 95%;
 
         @media screen and (max-width: 650px) {
             flex-direction: column;
@@ -106,9 +106,8 @@ h1 {
         &_item {
             width: 50%;
 
-
             @media screen and (max-width: 650px) {
-                width: 95%;
+                width: 100%;
             }
         }
     }
