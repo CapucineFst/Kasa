@@ -57,7 +57,12 @@
         left: 20px;
         right: 20px;
         font-weight: 500;
-        font-size: clamp(12px, 3vw, 18px);
+        font-size: 18px;
         color: #fff;
+
+        @media screen and (max-width: 550px) {
+            font-size: 14px;
+        }
+
     }
 }

@@ -7,16 +7,15 @@ import redStar from "../../assets/red_star.svg";
 import greyStar from "../../assets/grey_star.svg";
 import datas from "../../data/data.json";
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Navigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function Accomodation() {
   document.title = "Annonce - Kasa";
   const navigate = useNavigate();
 
-  const [imageSlide, setImageSlide] = useState([]);
-
+  const [accomodation, setAccomodation] = useState({});
+  const [name, setName] = useState(["", ""]);
   const idAccomodation = useParams("id").id;
-  const dataAccomodation = datas.filter((data) => data.id === idAccomodation);
 
   useEffect(() => {
     const dataAccomodation = datas.filter((data) => data.id === idAccomodation);
@@ -24,28 +23,21 @@ export default function Accomodation() {
       navigate("error");
       return;
     }
-    setImageSlide(dataAccomodation[0].pictures);
+    setAccomodation(dataAccomodation[0]);
+    setName(dataAccomodation[0].host.name.split(" "));
   }, [idAccomodation, navigate]);
-
-  if (dataAccomodation.length === 0) {
-    <Navigate to="error" />;
-    return;
-  }
-
-  const name = dataAccomodation[0].host.name.split(" ");
-  const rating = dataAccomodation[0].rating;
 
   return (
     <>
       <Header />
-      <Slide imageSlide={imageSlide} />
+      {accomodation.pictures ? ( <Slide imageSlide={accomodation.pictures} /> ) : ( "" )}
       <main className="accomodation">
         <div className="accomodation_infos">
           <div className="accomodation_infos_main">
-            <h1>{dataAccomodation[0].title}</h1>
-            <p>{dataAccomodation[0].location}</p>
+            <h1>{accomodation.title}</h1>
+            <p>{accomodation.location}</p>
             <div>
-              {dataAccomodation[0].tags.map((tag, index) => {
+              {accomodation.tags?.map((tag, index) => {
                 return <span key={index}>{tag}</span>;
               })}
             </div>
@@ -57,7 +49,7 @@ export default function Accomodation() {
                 <span>{name[1]}</span>
               </div>
               <img
-                src={dataAccomodation[0].host.picture}
+                src={accomodation.host?.picture}
                 alt="owner of this accomodation"
                 className="accomodation_infos_host_picture"
               ></img>
@@ -68,7 +60,9 @@ export default function Accomodation() {
                 return (
                   <img
                     key={index}
-                    src={ratingValue <= rating ? redStar : greyStar}
+                    src={
+                      ratingValue <= accomodation.rating ? redStar : greyStar
+                    }
                     alt="star"
                   />
                 );
@@ -79,13 +73,13 @@ export default function Accomodation() {
         <div className="accomodation_collapse">
           <div className="accomodation_collapse_item">
             <Collapse title={"Description"}>
-              <p>{dataAccomodation[0].description}</p>
+              <p>{accomodation.description}</p>
             </Collapse>
           </div>
           <div className="accomodation_collapse_item">
             <Collapse title={"Équipements"}>
               <ul>
-                {dataAccomodation[0].equipments.map((item, index) => {
+                {accomodation.equipments?.map((item, index) => {
                   return <li key={index}>{item}</li>;
                 })}
               </ul>

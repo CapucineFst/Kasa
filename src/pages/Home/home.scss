@@ -19,8 +19,12 @@
 
     p {
         color: #fff;
-        font-size: clamp(20px, 4vw, 48px);
+        font-size: 48px;
         font-weight: 500;
-    }
 
+        @media screen and (max-width: 550px) {
+            font-size: 24px;
+        }
+
+    }
 }
