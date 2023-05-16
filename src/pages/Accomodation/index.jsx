@@ -1,10 +1,9 @@
 import "./accomodation.scss";
 import Header from "../../components/Header";
 import Slide from "../../components/Carousel";
+import Rating from "../../components/Rating";
 import Collapse from "../../components/Collapse";
 import Footer from "../../components/Footer";
-import redStar from "../../assets/red_star.svg";
-import greyStar from "../../assets/grey_star.svg";
 import datas from "../../data/data.json";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -55,18 +54,7 @@ export default function Accomodation() {
               ></img>
             </div>
             <div className="accomodation_infos_host_rating">
-              {[...Array(5)].map((star, index) => {
-                const ratingValue = index + 1;
-                return (
-                  <img
-                    key={index}
-                    src={
-                      ratingValue <= accomodation.rating ? redStar : greyStar
-                    }
-                    alt="star"
-                  />
-                );
-              })}
+                {accomodation.rating ? ( <Rating rating={accomodation.rating} /> ) : ( "" )}
             </div>
           </div>
         </div>
